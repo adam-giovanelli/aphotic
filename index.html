@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin">
+    <title>Aphotic</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@latest/src/lite-yt-embed.css">
+    <style>
+      body, html {
+        background-color: #121212;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+      }
+
+      .header {
+        text-align: center;
+        padding: 40px 20px;
+        background-color: #121212;
+        margin-bottom: 20px;
+      }
+
+      .header h1 {
+        font-size: 4rem;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin: 0;
+        color: #ffffff;
+        text-shadow: 0 0 10px rgba(255,255,255,0.3);
+      }
+
+      .subheader {
+        text-align: left;
+        padding: 20px 20px;
+        font-size: 1.5rem;
+        color: #aaaaaa;
+        letter-spacing: 0.05em;
+        max-width: 1600px;
+        margin: 0 auto;
+      }
+
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        max-width: 1600px;
+        margin: 0 auto;
+      }
+
+      .video-wrapper {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      lite-youtube {
+        width: 100%;
+        aspect-ratio: 16/9;
+        border: 2px solid #333;
+        border-radius: 8px;
+      }
+
+      @media (max-width: 768px) {
+        .video-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .header h1 {
+          font-size: 2.5rem;
+        }
+
+        .subheader {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>APHOTIC</h1>
+    </div>
+
+    <div class="video-section">
+      <div class="subheader">
+        Acepe
+      </div>
+
+      <div class="video-grid" id="acepeVideoContainer">
+        <!-- Acepe videos will be dynamically inserted here -->
+      </div>
+    </div>
+
+    <div class="video-section">
+      <div class="subheader">
+        Ambient Outpost
+      </div>
+      
+      <div class="video-grid" id="aoVideoContainer">
+        <!-- Ambient Outpost videos will be dynamically inserted here -->
+      </div>
+    </div>
+
+    <div class="video-section">
+      <div class="subheader">
+        Athena IV
+      </div>
+      
+      <div class="video-grid" id="athenaVideoContainer">
+        <!-- Athena IV videos will be dynamically inserted here -->
+      </div>
+    </div>
+
+    <div class="video-section">
+      <div class="subheader">
+        Cosmic Hippo
+      </div>
+      
+      <div class="video-grid" id="cosmicHippoVideoContainer">
+        <!-- Cosmic Hippo videos will be dynamically inserted here -->
+      </div>
+    </div>
+
+    <div class="video-section">
+      <div class="subheader">
+        Essential Classics
+      </div>
+
+      <div class="video-grid" id="essentialClassicsVideoContainer">
+        <!-- Essential Classics videos will be dynamically inserted here -->
+      </div>
+    </div>
+
+    <div class="video-section">
+      <div class="subheader">
+        Futurescapes
+      </div>
+
+      <div class="video-grid" id="futurescapesVideoContainer">
+        <!-- Futurescapes videos will be dynamically inserted here -->
+      </div>
+    </div>
+
+    <div class="video-section">
+      <div class="subheader">
+        Greenred Productions
+      </div>
+
+      <div class="video-grid" id="greenredProductionsVideoContainer">
+        <!-- Greenred Productions videos will be dynamically inserted here -->
+      </div>
+    </div>
+
+    <div class="video-section">
+      <div class="subheader">
+        pandora
+      </div>
+
+      <div class="video-grid" id="pandoraVideoContainer">
+        <!-- pandora. videos will be dynamically inserted here -->
+      </div>
+    </div>
+
+    <div class="video-section">
+      <div class="subheader">
+        spiritual brother
+      </div>
+
+      <div class="video-grid" id="spiritualBrotherVideoContainer">
+        <!-- spiritual brother videos will be dynamically inserted here -->
+      </div>
+    </div>
+
+    <div class="video-section">
+      <div class="subheader">
+        Study Sonic Focus
+      </div>
+
+      <div class="video-grid" id="studySonicFocusVideoContainer">
+        <!-- Study Sonic Focus videos will be dynamically inserted here -->
+      </div>
+    </div>
+
+    <div class="video-section">
+      <div class="subheader">
+        Universal Ambients
+      </div>
+
+      <div class="video-grid" id="universalAmbientsVideoContainer">
+        <!-- Universal Ambients videos will be dynamically inserted here -->
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@latest/src/lite-yt-embed.js"></script>
+    <script>
+      // List of video IDs for Acepe
+      const acepe_videos = [
+        'hC0Th-HZx5M',
+        'Aabrfz878ik',
+        'MYjgu-IzGEI'
+      ];
+
+      // Get the Acepe video container
+      const acepe_videoContainer = document.getElementById('acepeVideoContainer');
+
+      // Function to create video element
+      function createVideoElement(videoId) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'video-wrapper';
+
+        const embed = document.createElement('lite-youtube');
+        embed.setAttribute('videoid', videoId);
+        embed.setAttribute('playlabel', 'Play Video');
+        embed.setAttribute('params', 'origin=http://localhost&modestbranding=1&rel=0');
+
+        wrapper.appendChild(embed);
+        return wrapper;
+      }
+
+      // Populate the Acepe container with videos
+      acepe_videos.forEach(videoId => {
+        acepe_videoContainer.appendChild(createVideoElement(videoId));
+      });
+
+      // List of video IDs for Ambient Outpost
+      const ao_videos = [
+        '20I4mXyUans',
+        'XWfUMyhnnIw',
+        'VNgyviyiGpE'
+      ];
+
+      // Get the Ambient Outpost video container
+      const ao_videoContainer = document.getElementById('aoVideoContainer');
+
+      // Populate the Ambient Outpost container with videos
+      ao_videos.forEach(videoId => {
+        ao_videoContainer.appendChild(createVideoElement(videoId));
+      });
+
+      // List of video IDs for Athena IV
+      const athena_videos = [
+        'SwUpMhp-DEc',
+        'Cx1StdEQrQk',
+        'sPJGMe99p7Q'
+      ];
+
+      // Get the Athena IV video container
+      const athenaVideoContainer = document.getElementById('athenaVideoContainer');
+
+      // Populate the Athena IV container with videos
+      athena_videos.forEach(videoId => {
+        athenaVideoContainer.appendChild(createVideoElement(videoId));
+      });
+
+      // List of video IDs for Cosmic Hippo
+      const cosmic_hippo_videos = [
+        'uDWpCwE2KNI',
+        'm-ksA2obnGc',
+        'LymNIyMzB-w'
+      ];
+
+      // Get the Cosmic Hippo video container
+      const cosmicHippoVideoContainer = document.getElementById('cosmicHippoVideoContainer');
+
+      // Populate the Cosmic Hippo container with videos
+      cosmic_hippo_videos.forEach(videoId => {
+        cosmicHippoVideoContainer.appendChild(createVideoElement(videoId));
+      });
+
+      // List of video IDs for Essential Classics
+      const essential_classics_videos = [
+        'ENVxylS0ew4',
+        'js6zXgxk0cQ',
+        'B8vtnVWrR64'
+      ];
+
+      // Get the Essential Classics video container
+      const essentialClassicsVideoContainer = document.getElementById('essentialClassicsVideoContainer');
+
+      // Populate the Essential Classics container with videos
+      essential_classics_videos.forEach(videoId => {
+        essentialClassicsVideoContainer.appendChild(createVideoElement(videoId));
+      });
+
+      // List of video IDs for Essential Classics
+      const futurescapes_videos = [
+        'GmcJONz4kYw',
+        'YUaSVFXTHlk',
+        'FxIYRYhGZXo'
+      ];
+
+      // Get the Essential Classics video container
+      const futurescapesVideoContainer = document.getElementById('futurescapesVideoContainer');
+
+      // Populate the Essential Classics container with videos
+      futurescapes_videos.forEach(videoId => {
+        futurescapesVideoContainer.appendChild(createVideoElement(videoId));
+      });
+
+      // List of video IDs for Essential Classics
+      const greenredProductions_videos = [
+        'RG2IK8oRZNA',
+        'R88oaAgQH_4',
+        'jQJOuoT2gbQ'
+      ];
+
+      // Get the Essential Classics video container
+      const greenredProductionsVideoContainer = document.getElementById('greenredProductionsVideoContainer');
+
+      // Populate the Essential Classics container with videos
+      greenredProductions_videos.forEach(videoId => {
+        greenredProductionsVideoContainer.appendChild(createVideoElement(videoId));
+      });
+
+      // List of video IDs for Essential Classics
+      const pandora_videos = [
+        '834ynD2n0eg',
+        'ftvXon9pBLY',
+        '17lotd0HYCw'
+      ];
+
+      // Get the Essential Classics video container
+      const pandoraVideoContainer = document.getElementById('pandoraVideoContainer');
+
+      // Populate the Essential Classics container with videos
+      pandora_videos.forEach(videoId => {
+        pandoraVideoContainer.appendChild(createVideoElement(videoId));
+      });
+
+      // List of video IDs for Essential Classics
+      const spiritualBrother_videos = [
+        'hVMLzWWCp0Q',
+        'GnmlCkxxDEQ',
+        'faRAWM6e1tU'
+      ];
+
+      // Get the Essential Classics video container
+      const spiritualBrotherVideoContainer = document.getElementById('spiritualBrotherVideoContainer');
+
+      // Populate the Essential Classics container with videos
+      spiritualBrother_videos.forEach(videoId => {
+        spiritualBrotherVideoContainer.appendChild(createVideoElement(videoId));
+      });
+
+      // List of video IDs for Essential Classics
+      const studySonicFocus_videos = [
+        'YWIhyOWxKPw',
+        'tAIiXRZNh9E',
+        'lkkGlVWvkLk'
+      ];
+
+      // Get the Essential Classics video container
+      const studySonicFocusVideoContainer = document.getElementById('studySonicFocusVideoContainer');
+
+      // Populate the Essential Classics container with videos
+      studySonicFocus_videos.forEach(videoId => {
+        studySonicFocusVideoContainer.appendChild(createVideoElement(videoId));
+      });
+
+      // List of video IDs for Essential Classics
+      const universalAmbients_videos = [
+        'G8-5YN1mheM',
+        '2NSIL5rMLdU',
+        'ect0ZwNBcHY'
+      ];
+
+      // Get the Essential Classics video container
+      const universalAmbientsVideoContainer = document.getElementById('universalAmbientsVideoContainer');
+
+      // Populate the Essential Classics container with videos
+      universalAmbients_videos.forEach(videoId => {
+        universalAmbientsVideoContainer.appendChild(createVideoElement(videoId));
+      });
+
+    </script>
+    <div class="header"></div>
+  </body>
+</html>
