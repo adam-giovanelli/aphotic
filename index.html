@@ -194,6 +194,16 @@
       </div>
     </div>
 
+    <div class="video-section">
+      <div class="subheader">
+        ADHD Study Club
+      </div>
+
+      <div class="video-grid" id="adhdStudyClubVideoContainer">
+        <!-- ADHD Study Club videos will be dynamically inserted here -->
+      </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@latest/src/lite-yt-embed.js"></script>
     <script>
       // List of video IDs for Acepe
@@ -373,6 +383,21 @@
       // Populate the Essential Classics container with videos
       universalAmbients_videos.forEach(videoId => {
         universalAmbientsVideoContainer.appendChild(createVideoElement(videoId));
+      });
+
+      // List of video IDs for ADHD Study Club
+      const adhdStudyClub_videos = [
+        'QH0t_ogClhA',
+        'UqIE3XRSNFQ',
+        '4mG6zekyT90'
+      ];
+
+      // Get the ADHD Study Club video container
+      const adhdStudyClubVideoContainer = document.getElementById('adhdStudyClubVideoContainer');
+
+      // Populate the ADHD Study Club container with videos
+      adhdStudyClub_videos.forEach(videoId => {
+        adhdStudyClubVideoContainer.appendChild(createVideoElement(videoId));
       });
 
     </script>
